@@ -1,5 +1,19 @@
 def ipv4_address(address):
-    pass
+    ip_count = address.split('.')
+    for i in ip_count:
+        if int(i) > 255:
+            address = False
+        elif int(i) < 0:
+            address = False
+        elif len(i) != 4:
+            address = False
+        elif i[0] == 0:
+            address = False
+        else:
+            pass    
+
+    if '\n' in address:
+        address = False          
 
 def test_q():
     assert ipv4_address("") == False
